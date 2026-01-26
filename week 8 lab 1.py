@@ -22,8 +22,6 @@ button1 = Button(15,pull_up=False )
 
 # Exercise 3
 while True:
-    red_led.off()
-    green_led.off()
     
     if button1.value == 1:
         for _ in range(5):
