@@ -1,7 +1,12 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import *
+from gpiozero import LED
+from gpiozero import DistanceSensor
 
+green_LED = LED(27)
+red_LED = LED(17)
+sonar_sensor = DistanceSensor(4,22)
 GPIO21_state = False 
 GPIO22_state = False
 
@@ -11,24 +16,29 @@ def GPIO21Button():
     if GPIO21_state == True:
         GPIO21_state = False
         green_button.config(bg="green")
+        green_LED.on()
     else:
         GPIO21_state = True
         green_button.config(bg="lightgrey")
+        green_LED.off()
 
 def GPIO22Button():
     global GPIO22_state
     if GPIO22_state == True:
         GPIO22_state = False
         red_button.config(bg="red")
+        red_LED.on()
     else:
         GPIO22_state = True
         red_button.config(bg="lightgrey")
+        red_LED.off()
         
 def GPIO24Button():
+    global sonar_sensor
     #Delete textbox content
     text_box.delete("1.0", END)
     #Display data in textbox
-    text_box.insert(END, "Sample")
+    text_box.insert(END, sonar_sensor.distance)
 
 #Create plain gui
 gui = tk.Tk()
