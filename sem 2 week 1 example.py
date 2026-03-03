@@ -35,7 +35,7 @@ gui = tk.Tk()
 gui.title("Gui demo")
 
 #Add image
-image = tk.PhotoImage(file="ATU-Logo.png")
+# image = tk.PhotoImage(file="ATU-Logo.png")
 
 #Config window size and bg colour
 tools_frame = tk.Frame(gui, width=200, height=400, bg="skyblue")
@@ -74,3 +74,4 @@ notebook.add(tools_tab, text="Command")
 notebook.add(status_tab, text="Status")
 
 gui.mainloop()
+print("running")
